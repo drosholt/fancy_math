@@ -1,28 +1,12 @@
 # FancyMath
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fancy_math`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'fancy_math'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install fancy_math
+A small sample project to demonstrate building Gems using C extensions.  The git history provides good documentation for how this project was built.
 
 ## Usage
 
-TODO: Write usage instructions here
+It is not recommended that you install this gem.  Use bin/console to start an IRB session that will automatically have loaded the FancyMath module.
+
+There is only one module function available, FancyMath.add.  Use it with integers: ```FancyMath.add(1, 2)```
 
 ## Development
 
