@@ -7,3 +7,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+ext/**/Makefile
+ext/**/*.o
+ext/**/*.bundle
