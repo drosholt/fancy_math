@@ -1,6 +1,7 @@
 #include <ruby.h>
 #include "add.h"
 #include "complex.h"
+#include "time_reporter.h"
 
 static VALUE call_add(VALUE rb_self, VALUE rb_a, VALUE rb_b) {
   // Convert ruby values to C integers
@@ -15,8 +16,14 @@ static VALUE call_add(VALUE rb_self, VALUE rb_a, VALUE rb_b) {
   return rb_result;
 }
 
-static VALUE call_complex_operation(VALUE rb_self) {
+static VALUE call_complex_operation(VALUE rb_self, VALUE rb_id, VALUE rb_occurrence) {
+  int id = FIX2INT(rb_id);
+  int occurrence = FIX2INT(rb_occurrence);
+
+  report_time("Enter", id, occurrence);
   complex_operation();
+  report_time("Leave", id, occurrence);
+
   return Qtrue;
 }
 
@@ -29,7 +36,7 @@ int Init_fancy_math() {
   rb_define_module_function(rb_module, "add", call_add, 2);
 
   // Add the C "complex_operation" method to the FancyMath module
-  rb_define_module_function(rb_module, "complex_operation", call_complex_operation, 0);
+  rb_define_module_function(rb_module, "complex_operation", call_complex_operation, 2);
 
   // Initialization complete and successful
   return 0;
