@@ -9,6 +9,10 @@ module FancyMath
     multithread { |i, j| FancyMath.complex_operation_without_gvl(i, j) }
   end
 
+  def self.threaded_complex_operation_with_ruby_component
+    multithread { |i, j| FancyMath.complex_operation_with_ruby_component(i, j) }
+  end
+
   def self.multithread
     threads = []
 
