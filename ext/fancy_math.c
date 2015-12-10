@@ -1,6 +1,7 @@
 #include <ruby.h>
 #include "add.h"
 #include "complex.h"
+#include "no_gvl.h"
 #include "time_reporter.h"
 
 static VALUE call_add(VALUE rb_self, VALUE rb_a, VALUE rb_b) {
@@ -40,6 +41,7 @@ int Init_fancy_math() {
 
   // Add the C "complex_operation" method to the FancyMath module
   rb_define_module_function(rb_module, "complex_operation", call_complex_operation, 2);
+  rb_define_module_function(rb_module, "complex_operation_without_gvl", call_complex_operation_without_gvl, 2);
 
   // Initialization complete and successful
   return 0;

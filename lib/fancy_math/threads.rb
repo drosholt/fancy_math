@@ -5,6 +5,10 @@ module FancyMath
     multithread { |i, j| FancyMath.complex_operation(i, j) }
   end
 
+  def self.threaded_complex_operation_without_gvl
+    multithread { |i, j| FancyMath.complex_operation_without_gvl(i, j) }
+  end
+
   def self.multithread
     threads = []
 
