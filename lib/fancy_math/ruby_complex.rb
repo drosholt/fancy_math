@@ -1,5 +1,7 @@
+require 'fancy_math'
+
 module FancyMath
   def self.ruby_complex_operation
-    sleep(1)
+    FancyMath.only_complex_operation
   end
 end

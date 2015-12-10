@@ -29,6 +29,12 @@ static VALUE call_complex_operation(VALUE rb_self, VALUE rb_id, VALUE rb_occurre
   return Qtrue;
 }
 
+static VALUE call_only_complex_operation(VALUE rb_self) {
+  complex_operation();
+
+  return Qtrue;
+}
+
 // Function must be named Init_<gem name>"
 int Init_fancy_math() {
   // Create new module to contain our method
@@ -43,6 +49,7 @@ int Init_fancy_math() {
 
   // Add the C "complex_operation" method to the FancyMath module
   rb_define_module_function(rb_module, "complex_operation", call_complex_operation, 2);
+  rb_define_module_function(rb_module, "only_complex_operation", call_only_complex_operation, 0);
   rb_define_module_function(rb_module, "complex_operation_without_gvl", call_complex_operation_without_gvl, 2);
   rb_define_module_function(rb_module, "complex_operation_with_ruby_component", call_complex_operation_with_ruby_component, 2);
 
