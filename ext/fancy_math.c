@@ -32,6 +32,9 @@ int Init_fancy_math() {
   // Create new module to contain our method
   VALUE rb_module = rb_define_module("FancyMath");
 
+  // Include the FancyMath logic that is coded in ruby
+  rb_require("fancy_math/threads.rb");
+
   // Add the C "add" method to the FancyMath module
   rb_define_module_function(rb_module, "add", call_add, 2);
 
